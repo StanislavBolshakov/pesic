@@ -6,4 +6,3 @@ if [ -z "$1" ]; then
 fi
 
 sed -i "s/version=\"[^']*\"/version=\"$1\"/" setup.py
-echo "Version updated to $1 in setup.py"

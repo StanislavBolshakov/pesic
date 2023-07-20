@@ -1,8 +1,10 @@
-name: Publish PESIC to PyPI
+name: Publish PESIC 📦 to PyPI
 on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
 
 jobs:
   publish:

@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/StanislavBolshakov/pesic/compare/v0.1.0...v0.1.1) (2023-07-20)
+
+
+### Bug Fixes
+
+* **pesic:** test release CI ([a32c3c0](https://github.com/StanislavBolshakov/pesic/commit/a32c3c0cc5b177f120b5b624498447b061982053))
+
 # [0.1.0](https://github.com/StanislavBolshakov/pesic/compare/v0.0.1...v0.1.0) (2023-07-20)
 
 

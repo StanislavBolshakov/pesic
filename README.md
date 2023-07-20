@@ -1,22 +1,30 @@
 # PESIC - PetroElektroSbyt Integrated Client
 
-## Usage
+## Установка
+
+```bash
+$ pip3 install -U pesic
+```
+
+## Использование
 
 ```python
 from pesic.wrapper import PESClient
+
 username = "88005553535"
 password = "ЧемУкогоТоЗанимать"
-pesik = PESClient(username=username, password=password)
 
-pesik.get_groups()
-print (pesik.update_meter_counters(
-            [[8760, "DAY"], [2730, "NIGHT"]]))
+api = PESClient(username=username, password=password)
+
+api.get_groups()
+api.get_accounts()
+api.update_meter_counters([[8760, "DAY"], [2730, "NIGHT"]])
 ```
 
-## DEBUG
+## Отладка
 
 ```bash
-export PESIC_LOGLEVE="debug"
+export PESIC_LOGLEVEL="debug"
 ```
 
 ## Предостережение

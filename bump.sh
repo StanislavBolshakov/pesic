@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 if [ -z "$1" ]; then
   echo "Usage: $0 <new_version>"

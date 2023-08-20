@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setuptools.setup(
     name="pesic",
-    version="0.1.2",
+    version="0.2.0",
     author="Stanislav Bolshakov",
     author_email="st.bolshakov@gmail.com",
     url="https://github.com/StanislavBolshakov/pesic",

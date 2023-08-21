@@ -6,11 +6,9 @@ from aiohttp import ClientSession
 from .custom_exceptions import CredentialsError, UnsupportedMeterType, UnsupportedArgumentError
 from .const import API_BASE, API_AUTH, API_GROUPS, API_ACCOUNTS
 
-LOGLEVEL = os.environ.get('PESIC_LOGLEVEL').upper()
+LOGLEVEL = os.environ.get('PESIC_LOGLEVEL', 'INFO').upper()
 logging.basicConfig(level=LOGLEVEL)
 _LOGGER = logging.getLogger(__name__)
-
-sys.tracebacklimit = 0
 
 class PESClient:
     """Wrapper around the PetroElectroSbyt API"""

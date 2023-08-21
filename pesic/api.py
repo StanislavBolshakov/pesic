@@ -93,6 +93,7 @@ class PESClient:
         return result
     
     async def set_meters_reading(self, account_id: int, readings: list):
+        """Send meter readings."""
         meter_info = await self.get_meters_info(account_id=account_id)
         meter_id = meter_info[0].get('id').get('registration')
         indications = meter_info[0].get('indications')

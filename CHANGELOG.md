@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/StanislavBolshakov/pesic/compare/v0.1.2...v0.2.0) (2023-08-20)
+
+
+### Features
+
+* **pesic:** adjust for /v6/ api endpoint ([7882794](https://github.com/StanislavBolshakov/pesic/commit/788279423cf484c4b958046837ccd2c9afcd15fd))
+
 ## [0.1.2](https://github.com/StanislavBolshakov/pesic/compare/v0.1.1...v0.1.2) (2023-07-20)
 
 

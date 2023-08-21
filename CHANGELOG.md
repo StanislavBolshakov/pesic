@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/StanislavBolshakov/pesic/compare/v0.2.0...v0.2.1) (2023-08-21)
+
+
+### Bug Fixes
+
+* **pesic:** set default log level ([5b5680a](https://github.com/StanislavBolshakov/pesic/commit/5b5680acc60ab5bbcb85fbedcbf479ff24bb08d4))
+
 # [0.2.0](https://github.com/StanislavBolshakov/pesic/compare/v0.1.2...v0.2.0) (2023-08-20)
 
 

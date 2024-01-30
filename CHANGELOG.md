@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/StanislavBolshakov/pesic/compare/v0.2.1...v0.3.0) (2024-01-30)
+
+
+### Features
+
+* **pesic:** added ability to pass client session to the API wrapper ([17ef668](https://github.com/StanislavBolshakov/pesic/commit/17ef6686aa4c3df7dab0ef37606866156c755eb2))
+
 ## [0.2.1](https://github.com/StanislavBolshakov/pesic/compare/v0.2.0...v0.2.1) (2023-08-21)
 
 

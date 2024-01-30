@@ -1,7 +1,6 @@
 from typing import Optional, Sequence
 import logging
 import os
-import sys
 from aiohttp import ClientSession
 from .custom_exceptions import CredentialsError, UnsupportedMeterType, UnsupportedArgumentError
 from .const import API_BASE, API_AUTH, API_GROUPS, API_ACCOUNTS
@@ -13,7 +12,7 @@ _LOGGER = logging.getLogger(__name__)
 class PESClient:
     """Wrapper around the PetroElectroSbyt API"""
 
-    def __init__(self, username: str, password: str):
+    def __init__(self, username: str, password: str,  session=None):
         """Create a new REST API Client"""
         self._username = username
         self._password = password
@@ -21,11 +20,15 @@ class PESClient:
                 'accept-encoding': 'gzip',
                 'content-type': 'application/json'
         }
-        self._session = ClientSession()
+        self.session = session
         self._token = None
 
+    def get_session(self):
+        return self.session or ClientSession()
+
     async def close(self):
-        await self._session.close()
+        if self.session and not self.session.closed:
+            await self.session.close()
 
     async def request(self, method: str, endpoint: str,  data: dict = None):
         """Perform a request against the specified parameters."""
@@ -34,7 +37,8 @@ class PESClient:
         headers = self._headers
         headers["Authorization"] = f"Bearer {self._token}"
         url = f"{API_BASE}{endpoint}"
-        async with self._session.request(method, url, headers=headers, json=data) as response:
+        session = self.get_session()
+        async with session.request(method, url, headers=headers, json=data) as response:
             result = await response.json(content_type=None)
             return result
 
@@ -43,10 +47,12 @@ class PESClient:
         return await self.request("get", endpoint)
 
     async def get_token(self):
+        """Fetch token logic."""
         headers = {'Accept': 'application/json, text/plain, */*', 'Captcha': 'none','Content-Type': 'application/json'}
         data = {'type': 'PHONE', 'login': self._username, 'password': self._password}
         url = f"{API_BASE}{API_AUTH}"
-        async with self._session.post(url, headers=headers, json=data) as response:
+        session = self.get_session()
+        async with session.post(url, headers=headers, json=data) as response:
             response.raise_for_status()
             result = await response.json()
         if type(result) == dict and result.get('code') == '3':
